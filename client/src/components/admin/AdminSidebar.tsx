@@ -38,8 +38,8 @@ export function AdminSidebar({ onNavigate }: AdminSidebarProps) {
   const locale = useLocale();
 
   return (
-    <aside className="flex h-full flex-col bg-primary text-white">
-      <div className="border-b border-white/10 px-5 py-5">
+    <aside className="flex h-full flex-col bg-primary text-white overflow-hidden">
+      <div className="border-b border-white/10 px-5 py-5 shrink-0">
         <Logo
           size="sm"
           className="[&_span]:text-white [&_rect]:fill-white [&_path]:fill-accent [&_circle]:fill-accent"
@@ -47,7 +47,7 @@ export function AdminSidebar({ onNavigate }: AdminSidebarProps) {
         <p className="mt-2 text-xs text-white/50">{t("title")}</p>
       </div>
 
-      <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-hidden">
         {links.map((link) => {
           if ("adminOnly" in link && link.adminOnly && user?.role !== "admin") return null;
           const Icon = link.icon;
@@ -73,7 +73,7 @@ export function AdminSidebar({ onNavigate }: AdminSidebarProps) {
         })}
       </nav>
 
-      <div className="border-t border-white/10 p-4 space-y-3">
+      <div className="border-t border-white/10 p-4 space-y-3 shrink-0">
         <LanguageSwitcher
           compact
           className="border-white/20 bg-white/5 [&>button]:text-white/80 [&>button[aria-pressed=true]]:bg-white/15 [&>button[aria-pressed=true]]:text-white w-full justify-center"
